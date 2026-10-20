@@ -1,0 +1,457 @@
+# Atividade sobre agentes inteligentes
+
+Aula 19/10/2026 | Professora Kadidja Valéria | Inteligência artificial
+
+**Disciplina:** Inteligência Artificial, Linguagens Formais e Autômatos
+
+**Estudante:** João Matheus | RGM:  38964694 | **Turma:** Eng. Software N1
+
+Realize os exercícios 2.3, 2.4 e 2.5 do Capítulo 2 sobre agentes inteligentes. Analise a racionalidade, descreva ambientes de tarefa por meio do modelo PEAS e explique os conceitos com suas próprias palavras. Utilize o capítulo disponibilizado e justifique suas respostas.
+
+**Modalidade sugerida:** individual com consulta. **Tempo estimado:** 2h30. **Prazo:** conforme orientação da professora.
+
+Preparação
+
+Leia os tópicos sobre racionalidade, ambientes e estrutura dos agentes, especialmente a Seção 2.3.2.
+
+Exercício 2.3
+
+Para cada afirmação, indique V ou F, justifique e forneça exemplo ou contraexemplo. Explicite as hipóteses utilizadas.
+
+a. Um agente que detecta apenas informações parciais sobre o estado não pode ser perfeitamente racional.
+
+Julgamento: F
+
+Justificativa: Um agente pode ser racional mesmo com informações parciais, desde que escolha a melhor ação com o que sabe.
+
+Exemplo ou contraexemplo: Exemplo: em um cruzamento com pouca visibilidade, o motorista reduz a velocidade e verifica se pode avançar.
+
+b. Existem ambientes de tarefa nos quais nenhum agente reativo puro pode comportar-se racionalmente.
+
+Julgamento: V
+
+Justificativa: Um agente reativo usa apenas a percepção atual. Se a decisão depende do passado, ele não tem informações suficientes.
+
+Exemplo ou contraexemplo: Exemplo: no jogo da memória, sem lembrar as cartas anteriores, o jogador precisa adivinhar.
+
+c. Existe um ambiente de tarefa em que todo agente é racional.
+
+Julgamento: V
+
+Justificativa: Se as ações não alteram o resultado, todas podem ser consideradas igualmente racionais.
+
+Exemplo ou contraexemplo: Exemplo: se o semáforo muda em horários fixos, apertar o botão não altera o resultado.
+
+d. A entrada para o programa de agente é a mesma que a entrada para a função de agente.
+
+Julgamento: F
+
+Justificativa: A função de agente relaciona cada histórico de percepções a uma ação, enquanto o programa de agente é a implementação que executa esse comportamento. O programa pode receber a percepção atual e manter internamente as informações anteriores de que precisa.
+
+Exemplo ou contraexemplo: Exemplo: um jogo recebe o toque atual e consulta a pontuação salva na memória.
+
+e. Toda função de agente é implementável por uma combinação de programa/máquina.
+
+Julgamento: F
+
+Justificativa: Nem toda função pode ser implementada: algumas exigem resolver problemas impossíveis para algoritmos ou recursos ilimitados.
+
+Exemplo ou contraexemplo: Exemplo: não existe algoritmo capaz de prever corretamente, em todos os casos, se qualquer programa entrará em loop infinito.
+
+f. Suponha que um agente selecione sua ação uniformemente ao acaso do conjunto de ações possíveis. Existe um ambiente de tarefa determinista em que esse agente é racional.
+
+Julgamento: V
+
+Justificativa: Se todas as ações levam ao mesmo resultado em um ambiente determinista, escolher ao acaso também é racional.
+
+Exemplo ou contraexemplo: Exemplo: escolher aleatoriamente entre catracas igualmente livres não altera o tempo de passagem.
+
+g. É possível para um dado agente ser perfeitamente racional em dois ambientes de tarefa distintos.
+
+Julgamento: V
+
+Justificativa: O mesmo agente pode agir racionalmente em ambientes diferentes quando a melhor ação é a mesma nos dois.
+
+Exemplo ou contraexemplo: Exemplo: respeitar os semáforos pode ser a ação correta em duas cidades com as mesmas regras.
+
+h. Todo agente é racional em um ambiente não observável.
+
+Julgamento: F
+
+Justificativa: A falta de observabilidade não torna automaticamente todas as ações racionais. Mesmo sem informações diretas sobre o estado do ambiente, algumas escolhas podem oferecer resultados esperados melhores do que outras.
+
+Exemplo ou contraexemplo: Exemplo: levar guarda-chuva em uma época chuvosa pode ser prudente mesmo sem ver o céu.
+
+i. Um agente jogador de pôquer perfeitamente racional nunca perde.
+
+Julgamento: F
+
+Justificativa: Ser racional é escolher a melhor jogada possível, não garantir a vitória. No pôquer, a sorte ainda pode levar à derrota.
+
+Exemplo ou contraexemplo: Exemplo: mesmo com boas cartas e uma aposta adequada, o jogador pode perder para uma mão melhor.
+
+Exercício 2.4
+
+Para cada caso, delimite o agente, preencha o PEAS e justifique todas as classificações. Considere Titã como cenário hipotético do exercício.
+
+Caso 1 — Jogar futebol.
+
+Agente analisado: Um jogador de linha (meio-campista), e não o time inteiro. Os colegas e os adversários fazem parte do ambiente.
+
+Objetivo e hipóteses: Ajudar o time a ganhar uma partida normal de 11 contra 11.
+
+P — Medida de desempenho: Resultado do time (gols a favor e contra, vitória), passes certos, desarmes e poucas faltas.
+
+E — Ambiente: Campo, bola, colegas, adversários, árbitro, regras, clima e torcida.
+
+A — Atuadores: Pernas e pés (correr, chutar, passar), cabeça e corpo (cabecear, proteger a bola), voz e gestos.
+
+S — Sensores: Visão, audição (apito e colegas), tato e equilíbrio do corpo.
+
+Propriedade | Classificação | Justificativa
+
+Observabilidade | Parcialmente observável | O jogador não consegue acompanhar tudo o que ocorre fora de seu campo de visão e desconhece as intenções dos demais.
+
+Número de agentes | Multiagente, cooperativo e competitivo | Atua em conjunto com seus companheiros, mas compete contra os jogadores do outro time.
+
+Previsibilidade | Estocástico | O desenrolar das jogadas depende das ações dos jogadores e do comportamento da bola, o que impede previsões exatas.
+
+Dependência entre decisões | Sequencial | As jogadas anteriores alteram as posições e podem modificar o placar, afetando as decisões seguintes.
+
+Mudança durante a decisão | Dinâmico | A partida continua em andamento enquanto o jogador avalia suas opções.
+
+Natureza dos elementos | Contínuos | A posição, a velocidade e o tempo são contínuos, embora o placar seja registrado em valores discretos.
+
+Conhecimento do funcionamento | Conhecido | O jogador conhece as regras e tem conhecimento geral do movimento da bola.
+
+Caso 2 — Explorar os oceanos subterrâneos de Titã.
+
+Agente analisado: Uma sonda submarina robô que se vira sozinha, lançada no oceano que fica embaixo do gelo de Titã.
+
+Objetivo e hipóteses: Mapear o oceano e procurar sinais de vida ou química orgânica. Como a comunicação com a Terra demora muito, a sonda decide sozinha, e supomos que não há mais ninguém lá.
+
+P — Medida de desempenho: Quantidade e qualidade dos dados coletados, sonda inteira e energia bem usada.
+
+E — Ambiente: Oceano frio, escuro e de alta pressão sob o gelo, com correntes e relevo desconhecido; a Terra fica longe e só manda comandos.
+
+A — Atuadores: Hélices, controle de subida e descida, braço de coleta, aquecedores e transmissor.
+
+S — Sensores: Sonar, câmeras, sensores de pressão, temperatura e salinidade, analisadores químicos e sensores de movimento.
+
+Propriedade | Classificação | Justificativa
+
+Observabilidade | Parcialmente observável | A escuridão e o alcance limitado dos sensores impedem que a sonda observe todo o ambiente.
+
+Número de agentes | Agente único | Pela hipótese adotada, não há outro agente atuando no local.
+
+Previsibilidade | Estocástico | Correntes, condições do gelo e possíveis falhas tornam os resultados incertos.
+
+Dependência entre decisões | Sequencial | A posição e a energia disponível são influenciadas pelas ações realizadas anteriormente.
+
+Mudança durante a decisão | Dinâmico | O ambiente pode se alterar durante o processo de decisão.
+
+Natureza dos elementos | Contínuos | Profundidade, pressão, temperatura e tempo assumem valores contínuos.
+
+Conhecimento do funcionamento | Desconhecido | Como as características do oceano são pouco conhecidas, a sonda precisa aprender sobre elas durante a exploração.
+
+Caso 3 — Comprar livros usados de IA na Internet.
+
+Agente analisado: Um programa que compra livros usados na internet para uma pessoa.
+
+Objetivo e hipóteses: Comprar os livros de uma lista, sem passar do orçamento. Supomos que cada anúncio é um único exemplar e que o programa não pode ver o livro de perto.
+
+P — Medida de desempenho: Livros certos comprados, preço baixo, boa condição, entrega rápida e vendedor confiável.
+
+E — Ambiente: Lojas e sites de venda, anúncios, vendedores, outros compradores, pagamento e entrega.
+
+A — Atuadores: Pesquisar, clicar, preencher formulários, comprar, pagar e mandar mensagem ao vendedor.
+
+S — Sensores: Leitura das páginas (preço, condição, avaliações, estoque) e dos e-mails de confirmação.
+
+Propriedade | Classificação | Justificativa
+
+Observabilidade | Parcialmente observável | As informações do anúncio não garantem conhecer a condição real do exemplar ou a confiabilidade do vendedor.
+
+Número de agentes | Multiagente, competitivo | Outros compradores podem adquirir o mesmo exemplar antes do agente.
+
+Previsibilidade | Estocástico | Preços, disponibilidade e prazos de entrega podem variar de forma incerta.
+
+Dependência entre decisões | Sequencial | As compras anteriores e o orçamento restante influenciam as escolhas seguintes.
+
+Mudança durante a decisão | Dinâmico | Enquanto o programa avalia as opções, o anúncio pode mudar ou o exemplar pode ser comprado por outra pessoa.
+
+Natureza dos elementos | Discretos | Anúncios, cliques e pedidos correspondem a elementos e ações discretos.
+
+Conhecimento do funcionamento | Conhecido | O procedimento de compra é conhecido, embora os detalhes reais de cada anúncio possam ser incertos.
+
+Caso 4 — Jogar uma partida de tênis.
+
+Agente analisado: Um tenista jogando simples contra um adversário.
+
+Objetivo e hipóteses: Ganhar a partida seguindo as regras oficiais.
+
+P — Medida de desempenho: Ganhar a partida (pontos, games e sets) com poucos erros.
+
+E — Ambiente: Quadra, rede, bola, raquete, adversário, árbitro, vento e placar.
+
+A — Atuadores: Pernas (correr), braço e raquete (forehand, backhand, saque, voleio) e voz.
+
+S — Sensores: Visão (bola, adversário, linhas), audição (batida na bola, árbitro) e tato na raquete.
+
+Propriedade | Classificação | Justificativa
+
+Observabilidade | Parcialmente observável | O tenista nem sempre identifica com precisão o efeito da bola ou a intenção do adversário.
+
+Número de agentes | Multiagente, competitivo | Os dois jogadores têm objetivos opostos: cada um procura vencer a partida.
+
+Previsibilidade | Estocástico | O golpe escolhido pelo adversário e o quique da bola dificultam prever exatamente a jogada.
+
+Dependência entre decisões | Sequencial | Cada golpe interfere no posicionamento dos jogadores e no desenvolvimento do ponto.
+
+Mudança durante a decisão | Dinâmico | O movimento da bola e do adversário continua durante a tomada de decisão.
+
+Natureza dos elementos | Combinação | Movimento e tempo variam sem saltos, mas o placar (15, 30, 40) é contado em números inteiros.
+
+Conhecimento do funcionamento | Conhecido | As regras são conhecidas, assim como os princípios gerais do movimento da bola.
+
+Caso 5 — Praticar tênis contra uma parede.
+
+Agente analisado: Um tenista treinando sozinho contra uma parede.
+
+Objetivo e hipóteses: Treinar os golpes e manter a bola em jogo, sem mais ninguém por perto.
+
+P — Medida de desempenho: Quantidade de rebatidas seguidas sem errar e pontaria em um alvo.
+
+E — Ambiente: Parede, chão, bola, raquete e vento.
+
+A — Atuadores: Pernas, braço, raquete e tronco.
+
+S — Sensores: Visão (bola e alvo), audição (som da batida) e tato.
+
+Propriedade | Classificação | Justificativa
+
+Observabilidade | Parcialmente observável | Embora consiga acompanhar a bola, o atleta pode não perceber precisamente seu efeito ou a intensidade do vento.
+
+Número de agentes | Agente único | A parede não toma decisões nem possui objetivos próprios; apenas reflete a bola conforme as condições físicas.
+
+Previsibilidade | Estocástico | O retorno tende a seguir um padrão, mas diferenças no golpe, no piso e no vento podem alterar a trajetória.
+
+Dependência entre decisões | Sequencial | A trajetória resultante de cada rebatida condiciona o golpe seguinte.
+
+Mudança durante a decisão | Dinâmico | O atleta precisa reagir enquanto a bola já está em movimento.
+
+Natureza dos elementos | Combinação | Movimento e tempo variam sem saltos, mas a contagem de rebatidas é por números inteiros.
+
+Conhecimento do funcionamento | Conhecido | O comportamento geral da bola é conhecido e pode ser compreendido melhor com a prática.
+
+Caso 6 — Realizar um salto de altura.
+
+Agente analisado: Um atleta fazendo uma tentativa de salto em altura, treinando ou tentando bater a própria marca.
+
+Objetivo e hipóteses: Passar o sarrafo na maior altura possível, sem outros atletas interferindo.
+
+P — Medida de desempenho: Altura em que o sarrafo foi superado, com poucas tentativas falhas e sem lesão.
+
+E — Ambiente: Pista de corrida, sarrafo, colchão de queda, vento, juízes e treinador.
+
+A — Atuadores: Pernas (correr e saltar), braços, tronco e costas (para passar por cima do sarrafo).
+
+S — Sensores: Visão (sarrafo e marca de partida), equilíbrio e sensação do próprio corpo, tato nos pés e audição.
+
+Propriedade | Classificação | Justificativa
+
+Observabilidade | Parcialmente observável | Durante parte do salto, o atleta não consegue observar diretamente o sarrafo e depende também da percepção corporal.
+
+Número de agentes | Agente único | Considerando a tentativa individual, nenhum outro atleta interfere diretamente na execução.
+
+Previsibilidade | Estocástico | Variações na aproximação, na impulsão e nas condições do vento podem afetar o desempenho.
+
+Dependência entre decisões | Sequencial | A corrida, a impulsão e a passagem sobre o sarrafo formam uma sequência, e tentativas anteriores também podem causar fadiga.
+
+Mudança durante a decisão | Dinâmico | Depois de iniciar a tentativa, o atleta precisa agir sem interromper o movimento para reconsiderar.
+
+Natureza dos elementos | Contínuos | Posição, velocidade e ângulos variam sem saltos.
+
+Conhecimento do funcionamento | Conhecido | As regras da modalidade e os princípios físicos envolvidos são conhecidos.
+
+Caso 7 — Participar de um leilão de um item, realizando lances.
+
+Agente analisado: Um programa que dá lances por uma pessoa em um leilão online de um único item.
+
+Objetivo e hipóteses: Comprar o item pagando menos do que ele vale para a pessoa, que define um valor máximo.
+
+P — Medida de desempenho: Diferença entre o quanto o item vale e o quanto foi pago; ganhar é bom, mas nunca pagar acima do valor máximo.
+
+E — Ambiente: Site do leilão, item, regras, outros participantes, lances já feitos e o relógio.
+
+A — Atuadores: Dar lance, programar lance automático e desistir.
+
+S — Sensores: Lance atual, lista de lances, tempo que falta, descrição do item e regras.
+
+Propriedade | Classificação | Justificativa
+
+Observabilidade | Parcialmente observável | O sistema mostra os lances registrados, mas não revela necessariamente os limites financeiros ou as estratégias dos concorrentes.
+
+Número de agentes | Multiagente, competitivo | Os participantes competem pela aquisição do mesmo produto e tentam obter condições vantajosas.
+
+Previsibilidade | Estocástico | As respostas dos outros participantes aos lances não podem ser previstas com certeza.
+
+Dependência entre decisões | Sequencial | Um lance pode aumentar o preço e influenciar as decisões posteriores dos concorrentes.
+
+Mudança durante a decisão | Dinâmico | Novas ofertas podem surgir e o prazo do leilão continua avançando durante a análise.
+
+Natureza dos elementos | Discretos | Os lances e as ações são eventos discretos, que podem ser contados individualmente.
+
+Conhecimento do funcionamento | Conhecido | O funcionamento e as regras do leilão são conhecidos, mas as intenções dos concorrentes não.
+
+Opções para classificação
+
+**Observabilidade:** Completamente observável, parcialmente observável ou não observável.
+
+**Número de agentes:** Agente único ou multiagente; indique cooperação ou competição quando pertinente.
+
+**Previsibilidade:** Determinístico ou estocástico; considere a influência estratégica de outros agentes.
+
+**Dependência entre decisões:** Episódico ou sequencial.
+
+**Mudança durante a decisão:** Estático, dinâmico ou semidinâmico.
+
+**Natureza dos elementos:** Discretos, contínuos ou combinação; considere estados, tempo, percepções e ações.
+
+**Conhecimento do funcionamento:** Conhecido ou desconhecido para o agente.
+
+Comparação final
+
+O que muda entre jogar tênis contra outra pessoa e praticar contra uma parede?
+
+Por que comprar livros usados pode exigir decisões com informações incompletas?
+
+Como outros agentes influenciam futebol e leilões?
+
+Respostas:
+
+Contra uma pessoa, é preciso reagir à estratégia do adversário. Contra a parede, o retorno da bola depende do golpe e das condições do ambiente.
+
+O comprador depende das fotos e da descrição, sem conseguir confirmar o estado real do livro ou a honestidade do vendedor.
+
+No futebol, o jogador coopera com colegas e enfrenta adversários. No leilão, os participantes competem e seus lances influenciam o preço.
+
+Exercício 2.5
+
+Defina cada termo com suas palavras em duas a quatro linhas e apresente um exemplo.
+
+Agente
+
+Definição: É algo que percebe o ambiente por sensores e age nele por atuadores.
+
+Exemplo: Exemplo: semáforo que ajusta os sinais conforme o trânsito.
+
+Função de agente
+
+Definição: É a regra que relaciona o histórico de percepções do agente à ação que deve executar.
+
+Exemplo: Exemplo: ligar ao pressionar o botão e desligar quando a água acabar.
+
+Programa de agente
+
+Definição: É o código que transforma as percepções em ações e pode guardar informações anteriores.
+
+Exemplo: Exemplo: aplicativo que usa a localização e os pedidos aceitos para indicar a próxima entrega.
+
+Racionalidade
+
+Definição: É escolher a melhor ação possível com as informações disponíveis, sem garantia de sucesso.
+
+Exemplo: Exemplo: sair mais cedo para evitar o trânsito habitual.
+
+Autonomia
+
+Definição: É a capacidade de decidir com base na experiência, e não apenas em instruções prévias.
+
+Exemplo: Exemplo: motorista que aprende a evitar ruas congestionadas.
+
+Agente reativo
+
+Definição: É um agente que reage somente ao que percebe no momento, sem usar memória do passado.
+
+Exemplo: Exemplo: porta que abre ao detectar alguém.
+
+Agente baseado em modelo
+
+Definição: É um agente que mantém um modelo interno do ambiente para considerar informações que não percebe no momento.
+
+Exemplo: Exemplo: elevador que guarda os andares solicitados.
+
+Agente baseado em objetivos
+
+Definição: É um agente que escolhe ações pensando em alcançar um objetivo.
+
+Exemplo: Exemplo: pessoa que muda a rota para chegar ao trabalho no horário.
+
+Agente baseado em utilidade
+
+Definição: É um agente que compara resultados por utilidade e escolhe o melhor equilíbrio entre fatores como preço e tempo.
+
+Exemplo: Exemplo: escolher o transporte considerando preço, duração e conforto.
+
+Agente com aprendizagem
+
+Definição: É um agente que melhora suas decisões conforme aprende com a experiência.
+
+Exemplo: Exemplo: aplicativo que recomenda músicas com base nas preferências do usuário.
+
+Síntese com autômatos
+
+Escolha um caso do item 2.4. Apresente três estados internos, três percepções, três ações e duas regras no formato estado atual + percepção → próximo estado e ação. Explique como estados internos representam informação passada e cite uma limitação da simplificação.
+
+Resposta:
+
+**Caso escolhido:** Caso 7, o programa que dá lances no leilão, com um valor máximo definido pela pessoa.
+
+**Estados internos:**
+
+OBSERVANDO: ainda não deu nenhum lance.
+
+DISPUTANDO: já deu lance e o preço ainda está dentro do valor máximo.
+
+DESISTIU: saiu do leilão (estado final).
+
+**Percepções:**
+
+RIVAL_ABAIXO_DO_LIMITE: alguém deu um lance e cobrir ainda custa menos que o valor máximo.
+
+RIVAL_ACIMA_DO_LIMITE: o preço passou do valor máximo.
+
+FIM_DO_TEMPO: o leilão acabou.
+
+**Ações:** DAR_LANCE, AGUARDAR, DESISTIR.
+
+**Regras (estado atual + percepção → próximo estado e ação):**
+
+OBSERVANDO + RIVAL_ABAIXO_DO_LIMITE → DISPUTANDO e DAR_LANCE.
+
+DISPUTANDO + RIVAL_ACIMA_DO_LIMITE → DESISTIU e DESISTIR.
+
+**Como o estado interno representa informação passada:** O estado interno resume parte do histórico: estar em “DISPUTANDO” indica que o programa já participou do leilão e que, até então, o preço estava dentro do limite estabelecido. Dessa forma, a mesma percepção pode gerar ações diferentes conforme o estado armazenado.
+
+**Limitação da simplificação:** Esse modelo é simplificado porque registra poucas informações. Ele não considera o valor atual exato, a quantidade de concorrentes ou o tempo restante, fatores que poderiam alterar a estratégia do programa.
+
+Entrega e avaliação
+
+Confira: identificação; nove análises no item 2.3; sete casos completos no item 2.4; dez conceitos no item 2.5; síntese; referências.
+
+Nome sugerido: `NomeSobrenome_Atividade_AgentesInteligentes`. Prazo e envio conforme orientação da professora.
+
+Critério | Atividade avaliativa (1,0 ponto) A2
+
+Item 2.3 — correção e argumentação | 30%
+
+Item 2.4 — PEAS e classificação justificada | 40%
+
+Item 2.5 — precisão conceitual e exemplos | 20%
+
+Síntese, organização e referências | 10%
+
+## Referências
+Material-base: Capítulo 2 — Agentes inteligentes, disponibilizado para a aula de 19/10/2026.
+Referências adicionais: RUSSELL, S.; NORVIG, P. *Artificial Intelligence: A Modern Approach*. 4. ed. Pearson, 2020. Capítulo 2 (Seções 2.1 a 2.4: agentes e ambientes, racionalidade, propriedades de ambientes de tarefa e estrutura dos agentes). IESS, L. et al. The tides of Titan. *Science*, v. 337, 2012 (evidência de oceano subterrâneo em Titã, base da hipótese do Caso 2).
